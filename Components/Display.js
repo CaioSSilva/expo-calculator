@@ -1,9 +1,9 @@
 import { View, Text } from 'react-native'
 
-export default function Display({caracters}) {
+export default function Display({caracters, isDark}) {
   return (
-    <View className="bg-zinc-900 w-screen h-40 items-end mt-[50px] justify-center">
-        <Text className="text-white font-bold text-3xl mr-3">
+    <View className={" w-screen h-40 items-end mt-24 justify-center " + (isDark ? "bg-zinc-900": 'bg-[#dfe0e0]')}>
+        <Text className={" font-bold text-3xl mr-3 " + (isDark ? 'text-white' : 'text-black')}>
             {caracters}
         </Text>
     </View>
