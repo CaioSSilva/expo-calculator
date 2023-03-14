@@ -4,51 +4,35 @@ import Button from "./Button";
 import Display from "./Display";
 
 export default function Keyboard({ isDark }) {
-  const [firstNumber, setFirstNumber] = useState("");
-  const [secondNumber, setSecondNumber] = useState("");
-  const [operation, setOperation] = useState("");
-
-  const handleNumberClick = (Value) => {
-    if (firstNumber.length < 10) {
-      setFirstNumber(firstNumber + Value);
+  const [text, setText] = useState("")
+  const [number, setNumber] = useState('')
+  
+  const handleNumberClick = (Value) =>{
+    if(text.length < 20){
+      setText(text + Value)
+      setNumber(number + Value)
     }
-  };
+  }
 
-  const handleOperatonClick = (Value) => {
-    setOperation(Value);
-    setSecondNumber(firstNumber);
-    setFirstNumber("");
-  };
-
-  const clear = () => {
-    setFirstNumber("");
-    setSecondNumber("");
-    setOperation("");
-  };
-
+  const handleOperatonClick = (Value) =>{
+    setText(text + Value)
+    setNumber('')
+  }
+  const clear = () =>{
+    setNumber('')
+    setText('')
+  }
+  
   const OperationResult = () => {
-    switch (operation) {
-      case "+":
-        setFirstNumber(parseFloat(secondNumber) + parseFloat(firstNumber));
-        break;
-      case "-":
-        setFirstNumber(parseFloat(secondNumber) - parseFloat(firstNumber));
-        break;
-      case "*":
-        setFirstNumber(parseFloat(secondNumber) * parseFloat(firstNumber));
-        break;
-      case "/":
-        setFirstNumber(parseFloat(secondNumber) / parseFloat(firstNumber));
-        break;
-      default:
-        clear();
-        setFirstNumber(0);
-        break;
+    try {
+      setText(eval(text))
+    } catch (error) {
+      clear()
     }
-  };
+  }
   return (
     <>
-      <Display isDark={isDark} caracters={firstNumber} />
+      <Display isDark={isDark} caracters={text} />
       <View className="flex-1 bottom-0 absolute w-screen mb-5">
         <View className="flex flex-row justify-center">
           <Button
@@ -60,16 +44,16 @@ export default function Keyboard({ isDark }) {
             }}
           />
           <Button
-            text="+/-"
+            text="^"
             isDark={isDark}
             className="bg-gray-700"
-            onPress={() => handleOperatonClick("+/-")}
+            onPress={() => handleOperatonClick("**")}
           />
           <Button
             text="%"
             isDark={isDark}
             className="bg-gray-700"
-            onPress={() => handleOperatonClick("%")}
+            onPress={() => handleOperatonClick("/100")}
           />
           <Button
             text="÷"
@@ -174,8 +158,8 @@ export default function Keyboard({ isDark }) {
             isDark={isDark}
             className="bg-orange-600"
             onPress={() => {
-              if (firstNumber.length > 0) {
-                setFirstNumber(firstNumber.slice(0, -1));
+              if (text.length > 0) {
+                setText(text.slice(0, -1));
               } else {
                 clear();
               }
