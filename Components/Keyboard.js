@@ -4,28 +4,28 @@ import Button from "./Button";
 import Display from "./Display";
 
 export default function Keyboard({ isDark }) {
-  const [text, setText] = useState("")
-  
-  const handleNumberClick = (Value) =>{
-    if(text.length < 20){
-      setText(text + Value)
-    }
-  }
+  const [text, setText] = useState("");
 
-  const handleOperatonClick = (Value) =>{
-    setText(text + Value)
-  }
-  const clear = () =>{
-    setText('')
-  }
-  
+  const handleNumberClick = (Value) => {
+    if (text.length < 20) {
+      setText(text + Value);
+    }
+  };
+
+  const handleOperatonClick = (Value) => {
+    setText(text + Value);
+  };
+  const clear = () => {
+    setText("");
+  };
+
   const OperationResult = () => {
     try {
-      setText(eval(text))
+      setText(eval(text));
     } catch (error) {
-      clear()
+      clear();
     }
-  }
+  };
   return (
     <>
       <Display isDark={isDark} caracters={text} />
@@ -61,19 +61,19 @@ export default function Keyboard({ isDark }) {
         <View className="flex flex-row justify-center ">
           <Button
             text="7"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("7")}
           />
           <Button
             text="8"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("8")}
           />
           <Button
             text="9"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("9")}
           />
@@ -87,19 +87,19 @@ export default function Keyboard({ isDark }) {
         <View className="flex flex-row justify-center">
           <Button
             text="4"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("4")}
           />
           <Button
             text="5"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("5")}
           />
           <Button
             text="6"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("6")}
           />
@@ -113,19 +113,19 @@ export default function Keyboard({ isDark }) {
         <View className="flex flex-row justify-center">
           <Button
             text="1"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("1")}
           />
           <Button
             text="2"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("2")}
           />
           <Button
             text="3"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("3")}
           />
@@ -139,13 +139,13 @@ export default function Keyboard({ isDark }) {
         <View className="flex flex-row justify-center">
           <Button
             text="."
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick(".")}
           />
           <Button
             text="0"
-            className={isDark ? 'text-white' : 'text-black'}
+            className={isDark ? "text-white" : "text-black"}
             isDark={isDark}
             onPress={() => handleNumberClick("0")}
           />
