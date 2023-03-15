@@ -5,21 +5,17 @@ import Display from "./Display";
 
 export default function Keyboard({ isDark }) {
   const [text, setText] = useState("")
-  const [number, setNumber] = useState('')
   
   const handleNumberClick = (Value) =>{
     if(text.length < 20){
       setText(text + Value)
-      setNumber(number + Value)
     }
   }
 
   const handleOperatonClick = (Value) =>{
     setText(text + Value)
-    setNumber('')
   }
   const clear = () =>{
-    setNumber('')
     setText('')
   }
   

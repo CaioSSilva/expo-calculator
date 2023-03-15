@@ -24,9 +24,6 @@
       },
       "package": "com.caiossilva.calculator"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
     "extra": {
       "eas": {
         "projectId": "5cb12105-f9ba-4c23-97a8-493ac0efadb2"
